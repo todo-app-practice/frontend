@@ -20,7 +20,7 @@ const convertKeysToPascalCase = (data: any): any => {
 };
 
 const api = axios.create({
-  baseURL: '/api', // This will be proxied by Vite to the backend
+  baseURL: '', // This will be proxied by Vite to the backend
 });
 
 // Add a request interceptor to include the token in headers

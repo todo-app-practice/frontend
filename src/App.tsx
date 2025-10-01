@@ -42,7 +42,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route
-                path="/todos"
+                path="/my-todos"
                 element={
                   <PrivateRoute>
                     <TodosPage />
@@ -57,7 +57,7 @@ function App() {
                   </PrivateRoute>
                 }
               />
-              <Route path="/" element={<Navigate to="/todos" replace />} />
+              <Route path="/" element={<Navigate to="/my-todos" replace />} />
             </Route>
           </Routes>
         </AuthProvider>

@@ -17,7 +17,7 @@ const LoginPage = () => {
     try {
       const user = await login(data);
       if (user) {
-        navigate('/todos');
+        navigate('/my-todos');
       }
     } catch (error: any) {
       setServerError(error.response?.data?.message || 'Login failed. Please check your credentials.');
