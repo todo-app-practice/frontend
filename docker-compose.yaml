@@ -12,3 +12,9 @@ services:
       - /app/node_modules
     networks:
       - todo-network
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.web.rule=Host(`local.todo.com`)
+      - traefik.http.routers.web.entrypoints=web
+      - traefik.http.services.web.loadbalancer.server.port=5173
+      - traefik.http.routers.web.service=web

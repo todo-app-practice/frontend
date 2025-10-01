@@ -5,19 +5,13 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {
-    // This is required to make the dev server accessible from outside the container
     host: '0.0.0.0',
-    // This is required for HMR (Hot Module Replacement) to work correctly in a Docker environment
+    allowedHosts: ['local.todo.com'],
+    origin: 'http://local.todo.com',
     hmr: {
-      clientPort: 5173,
-    },
-    // Proxy API requests to the backend service to avoid CORS issues
-    proxy: {
-      '/api': {
-        target: 'http://todo-app:8765',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
+      host: 'local.todo.com',
+      clientPort: 80,   // use 443 and 'wss' if you later add TLS
+      protocol: 'ws',
     },
   },
 });
