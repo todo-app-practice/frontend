@@ -7,6 +7,7 @@ import RegisterPage from './pages/RegisterPage';
 import TodosPage from './pages/TodosPage';
 import ProfilePage from './pages/ProfilePage';
 import { CircularProgress, Box } from '@mui/material';
+import LoginSuccessPage from './pages/LoginSuccessPage';
 
 const theme = createTheme({
   palette: {
@@ -40,6 +41,7 @@ function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/login/success" element={<LoginSuccessPage />} />
               <Route path="/register" element={<RegisterPage />} />
               <Route
                 path="/my-todos"
